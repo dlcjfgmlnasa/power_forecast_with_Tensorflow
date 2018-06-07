@@ -9,7 +9,7 @@ class BasicLSTMModel(object):
                  num_units,
                  rnn_static_size,
                  rnn_output_size=1,
-                 dnn_dims=None,
+                 dnn_dims=list(),
                  dnn_weight_initialization=tf.contrib.layers.xavier_initializer(),
                  dnn_activation_func=tf.nn.relu):
 
@@ -21,7 +21,7 @@ class BasicLSTMModel(object):
         self.dnn_weight_initialization = dnn_weight_initialization
         self.dnn_dims = dnn_dims
         self.dnn_activation_func = dnn_activation_func
-        if dnn_dims is None:
+        if dnn_dims is []:
             self.dnn_dims = [1]
         else:
             self.dnn_dims.append(1)
